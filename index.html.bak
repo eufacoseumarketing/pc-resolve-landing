@@ -232,13 +232,11 @@
         <nav>
             <a href="#recursos">Recursos</a>
             <a href="#como-funciona">Como Funciona</a>
-            <a href="#download">Planos</a>
-            <a href="#download">Download</a>
             <a href="#planos">Planos</a>
             <a href="#faq">FAQ</a>
-            <a href="#download" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Começar Grátis</a>
+            <a href="#planos" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Começar Grátis</a>
         </nav>
-        <a href="#download" class="btn btn-primary mobile-menu" style="padding:10px 20px;font-size:14px;">Começar</a>
+        <a href="#planos" class="btn btn-primary mobile-menu" style="padding:10px 20px;font-size:14px;">Começar</a>
     </div>
 </header>
 
@@ -247,7 +245,7 @@
         <h1>Seu PC com problema?<br><span>A IA resolve.</span></h1>
         <p>A PC Resolve conecta uma inteligência artificial diretamente no seu computador pra diagnosticar, consertar e prevenir problemas — enquanto você só assiste.</p>
         <div class="cta-group">
-            <a href="#download" class="btn btn-primary">Quero Testar Grátis →</a>
+            <a href="#planos" class="btn btn-primary">Quero Testar Grátis →</a>
             <a href="#como-funciona" class="btn btn-outline">Ver Como Funciona</a>
         </div>
     </div>
@@ -306,7 +304,7 @@
             <div class="step">
                 <div class="step-num">2</div>
                 <h3>Conecte à IA</h3>
-                <p>O agente se conecta automaticamente à nossa IA. Você recebe um link por e-mail pra acompanhar tudo.</p>
+                <p>O agente se conecta automaticamente à nossa IA. Você recebe um link por e-mail ou WhatsApp pra acompanhar tudo.</p>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
@@ -369,34 +367,6 @@
     </div>
 </section>
 
-<section id="download" class="section">
-    <div class="container">
-        <span class="section-label">Download</span>
-        <h2>Instale o Agente</h2>
-        <p class="subtitle">Escolha seu sistema operacional e comece em 30 segundos.</p>
-        <div class="download-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px;">
-            <div class="plan" style="text-align:center;padding:40px 24px;">
-                <span style="font-size:48px;display:block;margin-bottom:16px;">🪟</span>
-                <h3 style="margin-bottom:4px;">Windows</h3>
-                <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Windows 10 e 11 • 64 bits</p>
-                <a href="https://agent.pcresolve.com.br/meshagents?id=4" class="btn btn-primary" style="width:100%;justify-content:center;">Baixar Agente</a>
-            </div>
-            <div class="plan" style="text-align:center;padding:40px 24px;opacity:0.5;">
-                <span style="font-size:48px;display:block;margin-bottom:16px;">🐧</span>
-                <h3 style="margin-bottom:4px;">Linux</h3>
-                <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Em breve</p>
-                <span class="btn btn-outline" style="width:100%;justify-content:center;cursor:default;">Em Breve</span>
-            </div>
-            <div class="plan" style="text-align:center;padding:40px 24px;opacity:0.5;">
-                <span style="font-size:48px;display:block;margin-bottom:16px;">🍎</span>
-                <h3 style="margin-bottom:4px;">macOS</h3>
-                <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Em breve</p>
-                <span class="btn btn-outline" style="width:100%;justify-content:center;cursor:default;">Em Breve</span>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section id="faq" class="section">
     <div class="container">
         <span class="section-label">FAQ</span>
@@ -404,7 +374,7 @@
         <div class="faq-list">
             <details>
                 <summary>O agente é seguro? Ele acessa meus arquivos?</summary>
-                <p>Sim, 100% seguro. O agente só executa ações de diagnóstico e manutenção. Seus arquivos pessoais nunca são acessados ou enviados. Toda conexão é criptografada ponta a ponta. O agente usa criptografia ponta a ponta e pode ser auditado por especialistas independentes.</p>
+                <p>Sim, 100% seguro. O agente só executa ações de diagnóstico e manutenção. Seus arquivos pessoais nunca são acessados ou enviados. Toda conexão é criptografada ponta a ponta. O código é open source (Apache 2.0) — qualquer um pode auditar.</p>
             </details>
             <details>
                 <summary>A IA realmente resolve sozinha ou tem um humano por trás?</summary>
@@ -423,8 +393,8 @@
                 <p>Sim. Sem multa, sem letras miúdas. Cancele quando quiser e seu acesso continua até o fim do período pago.</p>
             </details>
             <details>
-                <summary>Qual a diferença pra uma assistência técnica tradicional?</summary>
-                <p>A assistência técnica tradicional exige agendamento, deslocamento e tempo. A PC Resolve faz tudo remotamente, 24h: diagnóstico, drivers, limpeza, otimização do Windows, backup e atualizações — em minutos, sem sair de casa.</p>
+                <summary>Qual a diferença pra um antivírus?</summary>
+                <p>Antivírus só protege contra malware. A PC Resolve faz manutenção completa: drivers desatualizados, lentidão, arquivos inúteis, otimização do Windows, backup, atualizações — coisas que um antivírus não resolve.</p>
             </details>
         </div>
     </div>
@@ -443,13 +413,13 @@
 <footer>
     <div class="container">
         <div class="footer-links">
-            <a href="#download">Planos</a>
+            <a href="#planos">Planos</a>
             <a href="#">Termos de Uso</a>
             <a href="#">Privacidade</a>
-            <a href="mailto:suporte@pcresolve.com.br">suporte@pcresolve.com.br</a>
+            <a href="#">Contato</a>
             <a href="https://agent.pcresolve.com.br">Painel</a>
         </div>
-        <p>© 2026 PC Resolve — Eu Faço Seu Marketing. </p>
+        <p>© 2026 PC Resolve — Eu Faço Seu Marketing. <a href="https://github.com/eufacoseumarketing/pc-resolve-landing">Código aberto</a>.</p>
     </div>
 </footer>
 
