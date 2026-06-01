@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Resolve — Suporte Remoto Inteligente com IA</title>
+    <meta name="description" content="Seu PC travou? A IA da PC Resolve resolve em minutos. Suporte remoto inteligente 24h, planos a partir de R$29,90/mês. Experimente grátis!">
+    <meta name="keywords" content="suporte remoto, IA, PC, computador, manutenção, help desk, inteligência artificial">
+    <meta name="author" content="PC Resolve">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pcresolve.com.br/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="PC Resolve — Suporte Remoto Inteligente com IA">
+    <meta property="og:description" content="Seu PC travou? A IA resolve em minutos. Suporte 24h a partir de R$29,90/mês.">
+    <meta property="og:url" content="https://pcresolve.com.br/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PC Resolve">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PC Resolve — Suporte Remoto Inteligente com IA">
+    <meta name="twitter:description" content="Seu PC travou? A IA resolve em minutos. Suporte 24h.">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "PC Resolve",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows",
+      "description": "Suporte remoto inteligente com IA que resolve problemas no seu PC automaticamente.",
+      "offers": {
+        "@type": "Offer",
+        "price": "29.90",
+        "priceCurrency": "BRL"
+      }
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --bg: #09090b;
+            --bg2: #131316;
+            --bg3: #1a1a20;
+            --border: #27272a;
+            --text: #f4f4f5;
+            --text2: #a1a1aa;
+            --accent: #8B5CF6;
+            --accent2: #A78BFA;
+            --accent-glow: rgba(139, 92, 246, 0.15);
+            --green: #4ADE80;
+            --green-glow: rgba(74, 222, 128, 0.12);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --max: 1100px;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* ─── Utility ─── */
+        .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+        .section { padding: 100px 0; }
+        .section-label { 
+            display: inline-block; font-size: 13px; font-weight: 600; 
+            letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--accent2); margin-bottom: 16px;
+        }
+        h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+        .subtitle { color: var(--text2); font-size: 18px; max-width: 600px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 600;
+            text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+            font-family: inherit; white-space: nowrap;
+        }
+        .btn-primary { 
+            background: var(--accent); color: #fff; 
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+        .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 0 45px var(--accent-glow); }
+        .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent2); }
+        
+        /* ─── Header ─── */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(9,9,11,0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        nav { display: flex; gap: 24px; align-items: center; }
+        nav a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+        nav a:hover { color: var(--text); }
+        .mobile-menu { display: none; }
+        
+        /* ─── Hero ─── */
+        #hero { padding: 160px 0 100px; text-align: center; position: relative; overflow: hidden; }
+        #hero::before {
+            content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        #hero h1 {
+            font-size: clamp(36px, 6vw, 64px); font-weight: 800; letter-spacing: -1.5px;
+            line-height: 1.08; margin-bottom: 24px; position: relative;
+        }
+        #hero h1 span { 
+            background: linear-gradient(135deg, var(--accent), var(--green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        #hero p { font-size: 19px; color: var(--text2); max-width: 550px; margin: 0 auto 32px; position: relative; }
+        #hero .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+        
+        /* ─── Features ─── */
+        #features { background: var(--bg2); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+        .feature-card {
+            background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 32px; transition: all 0.25s;
+        }
+        .feature-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+        .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+        .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .feature-card p { color: var(--text2); font-size: 15px; }
+        
+        /* ─── How it works ─── */
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 48px; }
+        .step {
+            text-align: center; padding: 40px 24px;
+            border: 1px solid var(--border); border-radius: var(--radius-lg);
+            position: relative;
+        }
+        .step-num {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--accent); color: #fff; font-size: 20px; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .step h3 { font-size: 18px; margin-bottom: 8px; }
+        .step p { color: var(--text2); font-size: 15px; }
+        
+        /* ─── Pricing ─── */
+        #pricing { background: var(--bg2); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+        .plan {
+            background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 36px 28px; transition: all 0.25s; position: relative;
+        }
+        .plan-featured { border-color: var(--accent); box-shadow: 0 0 40px var(--accent-glow); }
+        .plan-badge {
+            position: absolute; top: -12px; right: 24px;
+            background: var(--accent); color: #fff; font-size: 12px; font-weight: 700;
+            padding: 4px 14px; border-radius: 999px;
+        }
+        .plan-name { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .plan-price { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin: 16px 0 4px; }
+        .plan-price span { font-size: 16px; font-weight: 400; color: var(--text2); }
+        .plan-desc { color: var(--text2); font-size: 14px; margin-bottom: 20px; }
+        .plan-features { list-style: none; margin-bottom: 28px; }
+        .plan-features li { padding: 8px 0; font-size: 14px; color: var(--text2); }
+        .plan-features li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+        .plan .btn { width: 100%; text-align: center; justify-content: center; }
+        
+        /* ─── FAQ ─── */
+        .faq-list { max-width: 700px; margin: 48px auto 0; }
+        details { border-bottom: 1px solid var(--border); padding: 24px 0; }
+        details summary {
+            font-size: 17px; font-weight: 600; cursor: pointer; list-style: none;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        details summary::after { content: '+'; font-size: 22px; color: var(--accent); font-weight: 400; }
+        details[open] summary::after { content: '−'; }
+        details p { margin-top: 12px; color: var(--text2); font-size: 15px; }
+        
+        /* ─── CTA ─── */
+        #cta { text-align: center; }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(74,222,128,0.08));
+            border: 1px solid rgba(139,92,246,0.2); border-radius: var(--radius-lg);
+            padding: 64px 32px; max-width: 650px; margin: 0 auto;
+        }
+        .cta-box h2 { margin-bottom: 12px; }
+        .cta-box p { color: var(--text2); margin-bottom: 28px; }
+        
+        /* ─── Footer ─── */
+        footer {
+            border-top: 1px solid var(--border); padding: 48px 0;
+            text-align: center; color: var(--text2); font-size: 14px;
+        }
+        footer a { color: var(--accent2); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            .section { padding: 64px 0; }
+            #hero { padding: 120px 0 64px; }
+            nav { display: none; }
+            .mobile-menu { display: inline-flex; }
+            .pricing-grid, .features-grid, .steps { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="/" class="logo">PC<span>Resolve</span></a>
+        <nav>
+            <a href="#recursos">Recursos</a>
+            <a href="#como-funciona">Como Funciona</a>
+            <a href="#planos">Planos</a>
+            <a href="#faq">FAQ</a>
+            <a href="#planos" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Começar Grátis</a>
+        </nav>
+        <a href="#planos" class="btn btn-primary mobile-menu" style="padding:10px 20px;font-size:14px;">Começar</a>
+    </div>
+</header>
+
+<section id="hero" class="section">
+    <div class="container">
+        <h1>Seu PC com problema?<br><span>A IA resolve.</span></h1>
+        <p>A PC Resolve conecta uma inteligência artificial diretamente no seu computador pra diagnosticar, consertar e prevenir problemas — enquanto você só assiste.</p>
+        <div class="cta-group">
+            <a href="#planos" class="btn btn-primary">Quero Testar Grátis →</a>
+            <a href="#como-funciona" class="btn btn-outline">Ver Como Funciona</a>
+        </div>
+    </div>
+</section>
+
+<section id="recursos" class="section">
+    <div class="container">
+        <span class="section-label">Recursos</span>
+        <h2>Tudo que seu PC precisa<br>num só lugar</h2>
+        <p class="subtitle">Diagnóstico, manutenção, atualização e segurança — automatizados por IA.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🔍</span>
+                <h3>Diagnóstico Inteligente</h3>
+                <p>A IA analisa seu PC em segundos: lentidão, drivers, malware, disco cheio, memória — tudo mapeado.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Correção Automática</h3>
+                <p>Sem técnico. A IA limpa arquivos inúteis, desinstala bloatware, atualiza drivers e otimiza o Windows.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>Segurança Proativa</h3>
+                <p>Monitoramento 24h contra vírus, ransomware e phishing. Backup automático antes de qualquer mudança crítica.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔄</span>
+                <h3>Atualizações em Dia</h3>
+                <p>Windows, drivers, navegadores — tudo atualizado sem você precisar clicar em nada.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">💬</span>
+                <h3>Suporte Humano</h3>
+                <p>A IA resolve 90% sozinha. Nos 10% restantes, um técnico humano assume em minutos pelo chat.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Relatórios Mensais</h3>
+                <p>Receba no e-mail um resumo da saúde do seu PC: o que foi corrigido, status de segurança e desempenho.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="como-funciona" class="section">
+    <div class="container">
+        <span class="section-label">Como Funciona</span>
+        <h2>Em 3 passos,<br>seu PC resolvido</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Instale o Agente</h3>
+                <p>Um programa leve de ~5MB que roda em segundo plano. Instalação em 30 segundos, zero configuração.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Conecte à IA</h3>
+                <p>O agente se conecta automaticamente à nossa IA. Você recebe um link por e-mail ou WhatsApp pra acompanhar tudo.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Pronto. Tá resolvido.</h3>
+                <p>A IA diagnostica, corrige e mantém seu PC saudável. Você recebe relatórios e só interage quando quiser.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="planos" class="section">
+    <div class="container">
+        <span class="section-label">Planos</span>
+        <h2>Invista na saúde<br>do seu computador</h2>
+        <p class="subtitle">Planos acessíveis pra uso pessoal ou empresarial. Cancele quando quiser.</p>
+        <div class="pricing-grid">
+            <div class="plan">
+                <p class="plan-name">Grátis</p>
+                <div class="plan-price">R$0<span>/mês</span></div>
+                <p class="plan-desc">Pra quem quer experimentar</p>
+                <ul class="plan-features">
+                    <li>1 diagnóstico completo</li>
+                    <li>Limpeza de arquivos temporários</li>
+                    <li>Correções básicas automáticas</li>
+                    <li>Relatório de saúde do PC</li>
+                    <li>Suporte por e-mail</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Começar Grátis</a>
+            </div>
+            <div class="plan plan-featured">
+                <div class="plan-badge">Mais popular</div>
+                <p class="plan-name">Pro</p>
+                <div class="plan-price">R$29,90<span>/mês</span></div>
+                <p class="plan-desc">Perfeito pra uso pessoal</p>
+                <ul class="plan-features">
+                    <li>Diagnósticos ilimitados</li>
+                    <li>Atualização automática de drivers</li>
+                    <li>Otimização contínua do Windows</li>
+                    <li>Monitoramento de segurança 24h</li>
+                    <li>Backup automático inteligente</li>
+                    <li>Suporte humano prioritário</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Assinar Pro</a>
+            </div>
+            <div class="plan">
+                <p class="plan-name">Empresarial</p>
+                <div class="plan-price">R$99,90<span>/mês</span></div>
+                <p class="plan-desc">Até 10 computadores</p>
+                <ul class="plan-features">
+                    <li>Tudo do plano Pro ×10 PCs</li>
+                    <li>Painel de controle centralizado</li>
+                    <li>Políticas de segurança customizadas</li>
+                    <li>Relatórios de compliance</li>
+                    <li>Suporte humano 24/7 dedicado</li>
+                    <li>API para integração com ITSM</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Falar com Vendas</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="section">
+    <div class="container">
+        <span class="section-label">FAQ</span>
+        <h2>Perguntas Frequentes</h2>
+        <div class="faq-list">
+            <details>
+                <summary>O agente é seguro? Ele acessa meus arquivos?</summary>
+                <p>Sim, 100% seguro. O agente só executa ações de diagnóstico e manutenção. Seus arquivos pessoais nunca são acessados ou enviados. Toda conexão é criptografada ponta a ponta. O código é open source (Apache 2.0) — qualquer um pode auditar.</p>
+            </details>
+            <details>
+                <summary>A IA realmente resolve sozinha ou tem um humano por trás?</summary>
+                <p>A IA resolve cerca de 90% dos problemas automaticamente: drivers, limpeza, otimização, atualizações, detecção de malware. Nos 10% que exigem decisão humana (ex: "quer formatar ou tentar recuperar?"), um técnico assume. Mas você sempre vê tudo que está sendo feito.</p>
+            </details>
+            <details>
+                <summary>Funciona em qualquer Windows?</summary>
+                <p>Windows 10 e 11. Versões Home e Pro. O agente pesa menos de 5MB e não consome recursos do PC quando não está em uso ativo.</p>
+            </details>
+            <details>
+                <summary>Preciso estar na frente do PC durante o suporte?</summary>
+                <p>Não. Você pode deixar a IA trabalhando enquanto faz outras coisas. Ela manda notificações quando concluir ou se precisar de sua confirmação pra alguma ação.</p>
+            </details>
+            <details>
+                <summary>Posso cancelar a qualquer momento?</summary>
+                <p>Sim. Sem multa, sem letras miúdas. Cancele quando quiser e seu acesso continua até o fim do período pago.</p>
+            </details>
+            <details>
+                <summary>Qual a diferença pra um antivírus?</summary>
+                <p>Antivírus só protege contra malware. A PC Resolve faz manutenção completa: drivers desatualizados, lentidão, arquivos inúteis, otimização do Windows, backup, atualizações — coisas que um antivírus não resolve.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section id="cta" class="section">
+    <div class="container">
+        <div class="cta-box">
+            <h2>Seu PC merece<br>um técnico 24h</h2>
+            <p>Experimente grátis. A IA faz o diagnóstico completo do seu PC em menos de 2 minutos.</p>
+            <a href="#" class="btn btn-primary" style="font-size:17px;padding:16px 36px;">Quero Meu Diagnóstico Grátis →</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#planos">Planos</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Privacidade</a>
+            <a href="#">Contato</a>
+            <a href="https://agent.pcresolve.com.br">Painel</a>
+        </div>
+        <p>© 2026 PC Resolve — Eu Faço Seu Marketing. <a href="https://github.com/eufacoseumarketing/pc-resolve-landing">Código aberto</a>.</p>
+    </div>
+</footer>
+
+</body>
+</html>
