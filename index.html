@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Resolve — Suporte Remoto Inteligente com IA</title>
-    <meta name="description" content="Seu PC travou? A IA da PC Resolve resolve em minutos. Suporte remoto inteligente 24h, planos a partir de R$29,90/mês. Experimente grátis!">
-    <meta name="keywords" content="suporte remoto, IA, PC, computador, manutenção, help desk, inteligência artificial">
+    <title>PC Resolve — Suporte Inteligente para seu Computador</title>
+    <meta name="description" content="Converse com a IA que resolve problemas do seu PC. Crédito pré-pago, sem mensalidade. Suporte para Windows, Linux e macOS. Comece grátis!">
+    <meta name="keywords" content="suporte remoto, IA, PC, computador, manutenção, help desk, inteligência artificial, crédito, pré-pago">
     <meta name="author" content="PC Resolve">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://pcresolve.com.br/">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="PC Resolve — Suporte Remoto Inteligente com IA">
-    <meta property="og:description" content="Seu PC travou? A IA resolve em minutos. Suporte 24h a partir de R$29,90/mês.">
+    <meta property="og:title" content="PC Resolve — Suporte Inteligente para seu Computador">
+    <meta property="og:description" content="Converse com a IA que resolve problemas do seu PC. Crédito pré-pago, sem mensalidade. Comece grátis!">
     <meta property="og:url" content="https://pcresolve.com.br/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="PC Resolve">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PC Resolve — Suporte Remoto Inteligente com IA">
-    <meta name="twitter:description" content="Seu PC travou? A IA resolve em minutos. Suporte 24h.">
+    <meta name="twitter:title" content="PC Resolve — Suporte Inteligente para seu Computador">
+    <meta name="twitter:description" content="Converse com a IA que resolve problemas do seu PC. Crédito pré-pago, sem mensalidade.">
     
     <!-- JSON-LD -->
     <script type="application/ld+json">
@@ -29,11 +29,11 @@
       "@type": "SoftwareApplication",
       "name": "PC Resolve",
       "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "Windows",
-      "description": "Suporte remoto inteligente com IA que resolve problemas no seu PC automaticamente.",
+      "operatingSystem": "Windows, Linux, macOS",
+      "description": "Suporte remoto inteligente com IA. Converse com um especialista virtual que diagnostica e resolve problemas no seu computador.",
       "offers": {
         "@type": "Offer",
-        "price": "29.90",
+        "description": "Crédito pré-pago a partir de R$19,90",
         "priceCurrency": "BRL"
       }
     }
@@ -58,6 +58,8 @@
             --accent-glow: rgba(139, 92, 246, 0.15);
             --green: #4ADE80;
             --green-glow: rgba(74, 222, 128, 0.12);
+            --amber: #FBBF24;
+            --amber-glow: rgba(251, 191, 36, 0.1);
             --radius: 12px;
             --radius-lg: 20px;
             --max: 1100px;
@@ -96,6 +98,8 @@
         .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 0 45px var(--accent-glow); }
         .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
         .btn-outline:hover { border-color: var(--accent); color: var(--accent2); }
+        .btn-green { background: var(--green); color: #000; }
+        .btn-green:hover { filter: brightness(1.1); transform: translateY(-2px); }
         
         /* ─── Header ─── */
         header {
@@ -127,12 +131,12 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        #hero p { font-size: 19px; color: var(--text2); max-width: 550px; margin: 0 auto 32px; position: relative; }
+        #hero p { font-size: 19px; color: #d4d4d8; max-width: 580px; margin: 0 auto 32px; position: relative; line-height: 1.55; }
         #hero .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
         
         /* ─── Features ─── */
         #features { background: var(--bg2); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; margin-top: 48px; }
         .feature-card {
             background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-lg);
             padding: 32px; transition: all 0.25s;
@@ -141,11 +145,7 @@
         .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
         .feature-icon svg { width: 40px; height: 40px; }
         .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-        .feature-card p { color: var(--text2); font-size: 15px; }
-        
-        /* Download OS icons */
-        .os-icon { width: 56px; height: 56px; margin: 0 auto 16px; display: block; }
-        .os-icon svg { width: 100%; height: 100%; }
+        .feature-card p { color: #d4d4d8; font-size: 15px; line-height: 1.5; }
         
         /* ─── How it works ─── */
         .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 48px; }
@@ -161,29 +161,52 @@
             margin: 0 auto 20px;
         }
         .step h3 { font-size: 18px; margin-bottom: 8px; }
-        .step p { color: var(--text2); font-size: 15px; }
+        .step p { color: #d4d4d8; font-size: 15px; line-height: 1.5; }
         
-        /* ─── Pricing ─── */
-        #pricing { background: var(--bg2); }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
-        .plan {
+        /* ─── Credits / Pricing ─── */
+        #creditos { background: var(--bg2); }
+        .credits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+        .credit-pack {
             background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-lg);
             padding: 36px 28px; transition: all 0.25s; position: relative;
+            text-align: center;
         }
-        .plan-featured { border-color: var(--accent); box-shadow: 0 0 40px var(--accent-glow); }
-        .plan-badge {
-            position: absolute; top: -12px; right: 24px;
-            background: var(--accent); color: #fff; font-size: 12px; font-weight: 700;
-            padding: 4px 14px; border-radius: 999px;
+        .credit-pack-featured { border-color: var(--accent); box-shadow: 0 0 40px var(--accent-glow); }
+        .pack-badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--green); color: #000; font-size: 12px; font-weight: 700;
+            padding: 4px 14px; border-radius: 999px; white-space: nowrap;
         }
-        .plan-name { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
-        .plan-price { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin: 16px 0 4px; }
-        .plan-price span { font-size: 16px; font-weight: 400; color: var(--text2); }
-        .plan-desc { color: var(--text2); font-size: 14px; margin-bottom: 20px; }
-        .plan-features { list-style: none; margin-bottom: 28px; }
-        .plan-features li { padding: 8px 0; font-size: 14px; color: var(--text2); }
-        .plan-features li::before { content: '✓ '; color: var(--green); font-weight: 700; }
-        .plan .btn { width: 100%; text-align: center; justify-content: center; }
+        .pack-name { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .pack-price { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin: 16px 0 4px; }
+        .pack-price span { font-size: 16px; font-weight: 400; color: var(--text2); }
+        .pack-desc { color: #d4d4d8; font-size: 14px; margin-bottom: 20px; }
+        .pack-features { list-style: none; margin-bottom: 28px; text-align: left; }
+        .pack-features li { padding: 8px 0; font-size: 14px; color: #d4d4d8; }
+        .pack-desc { color: #d4d4d8; font-size: 14px; margin-bottom: 20px; }
+        .pack-name { font-size: 18px; font-weight: 600; margin-bottom: 4px; color: #f4f4f5; }
+        .btn-outline { background: transparent; color: var(--text); border: 1px solid #3f3f46; }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent2); background: rgba(139,92,246,0.06); }
+        .credit-pack, .os-card { border-color: #2e2e35; }
+        .pack-features li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+        .credit-pack .btn { width: 100%; text-align: center; justify-content: center; }
+        
+        .no-subscription {
+            margin-top: 36px; text-align: center; padding: 24px;
+            background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius);
+        }
+        .no-subscription p { color: var(--text2); font-size: 15px; }
+        .no-subscription strong { color: var(--green); }
+        
+        /* ─── Download ─── */
+        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 48px; }
+        .os-card {
+            background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 40px 24px; text-align: center; transition: all 0.25s;
+        }
+        .os-card:hover { border-color: var(--accent); }
+        .os-icon { width: 56px; height: 56px; margin: 0 auto 16px; display: block; }
+        .os-icon svg { width: 100%; height: 100%; }
         
         /* ─── FAQ ─── */
         .faq-list { max-width: 700px; margin: 48px auto 0; }
@@ -206,6 +229,16 @@
         .cta-box h2 { margin-bottom: 12px; }
         .cta-box p { color: var(--text2); margin-bottom: 28px; }
         
+        /* ─── Badges row ─── */
+        .badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+        .badge-item {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 14px; border-radius: 999px;
+            background: var(--bg3); border: 1px solid var(--border);
+            font-size: 13px; color: var(--text2);
+        }
+        .badge-item svg { width: 16px; height: 16px; }
+        
         /* ─── Footer ─── */
         footer {
             border-top: 1px solid var(--border); padding: 48px 0;
@@ -221,7 +254,8 @@
             #hero { padding: 120px 0 64px; }
             nav { display: none; }
             .mobile-menu { display: inline-flex; }
-            .pricing-grid, .features-grid, .steps { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+            .credits-grid, .features-grid, .steps, .download-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+            .badges { flex-direction: column; align-items: center; }
         }
         
         @media (prefers-reduced-motion: reduce) {
@@ -237,23 +271,40 @@
         <nav>
             <a href="#recursos">Recursos</a>
             <a href="#como-funciona">Como Funciona</a>
-            <a href="#download">Planos</a>
+            <a href="#creditos">Créditos</a>
             <a href="#download">Download</a>
-            <a href="#planos">Planos</a>
             <a href="#faq">FAQ</a>
-            <a href="#download" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Começar Grátis</a>
+            <a href="#download" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Baixar Grátis</a>
         </nav>
-        <a href="#download" class="btn btn-primary mobile-menu" style="padding:10px 20px;font-size:14px;">Começar</a>
+        <a href="#download" class="btn btn-primary mobile-menu" style="padding:10px 20px;font-size:14px;">Baixar</a>
     </div>
 </header>
 
 <section id="hero" class="section">
     <div class="container">
-        <h1>Seu PC com problema?<br><span>A IA resolve.</span></h1>
-        <p>A PC Resolve conecta uma inteligência artificial diretamente no seu computador pra diagnosticar, consertar e prevenir problemas — enquanto você só assiste.</p>
+        <h1>Seu PC com problema?<br><span>Converse com a IA.</span></h1>
+        <p>Instale o agente, converse com a inteligência artificial da PC Resolve e veja seu computador ser diagnosticado e consertado — com sua autorização a cada passo.</p>
         <div class="cta-group">
-            <a href="#download" class="btn btn-primary">Quero Testar Grátis →</a>
-            <a href="#como-funciona" class="btn btn-outline">Ver Como Funciona</a>
+            <a href="#download" class="btn btn-primary">Baixar Agente Grátis →</a>
+            <a href="#como-funciona" class="btn btn-outline">Como Funciona</a>
+        </div>
+        <div class="badges">
+            <span class="badge-item">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M0 3.449L9.75 2.1v9.45H0V3.449zm0 8.398h9.75V21.9L0 20.551zm10.697-9.595L24 0v11.55h-13.303zm0 18.348V12.45H24V24z"/></svg>
+                Windows
+            </span>
+            <span class="badge-item">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0z"/></svg>
+                Linux
+            </span>
+            <span class="badge-item">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.92.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.93-1.38 2.9-1.5.14 1.08-.32 2.17-.97 2.92-.7.8-1.86 1.42-2.97 1.33-.16-1.04.32-2.06 1.04-2.75"/></svg>
+                macOS (em breve)
+            </span>
+            <span class="badge-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Crédito pré-pago
+            </span>
         </div>
     </div>
 </section>
@@ -262,37 +313,37 @@
     <div class="container">
         <span class="section-label">Recursos</span>
         <h2>Tudo que seu PC precisa<br>num só lugar</h2>
-        <p class="subtitle">Diagnóstico, manutenção, atualização e segurança — automatizados por IA.</p>
+        <p class="subtitle">Converse com uma IA especialista, acompanhe cada ação e pague só pelo que usar.</p>
         <div class="features-grid">
             <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
-                <h3>Diagnóstico Inteligente</h3>
-                <p>A IA analisa seu PC em segundos: lentidão, drivers, malware, disco cheio, memória — tudo mapeado.</p>
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                <h3>Chat com IA Especialista</h3>
+                <p>Converse diretamente com a IA pelo agente. Descreva o problema em português, como se estivesse falando com um técnico. Ela entende, diagnostica e resolve.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
-                <h3>Correção Automática</h3>
-                <p>Sem técnico. A IA limpa arquivos inúteis, desinstala bloatware, atualiza drivers e otimiza o Windows.</p>
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+                <h3>Windows, Linux e macOS</h3>
+                <p>Não importa o sistema operacional. O agente da PC Resolve funciona no Windows, nas principais distribuições Linux e em breve no macOS.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-                <h3>Segurança Proativa</h3>
-                <p>Monitoramento 24h contra vírus, ransomware e phishing. Backup automático antes de qualquer mudança crítica.</p>
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><line x1="12" y1="18" x2="12" y2="22"/></svg></span>
+                <h3>Crédito Pré-pago</h3>
+                <p>Sem mensalidade, sem contrato. Você compra créditos quando precisar. Cada conversa com a IA consome créditos de forma transparente. Seu saldo, seu controle.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span>
-                <h3>Atualizações em Dia</h3>
-                <p>Windows, drivers, navegadores — tudo atualizado sem você precisar clicar em nada.</p>
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+                <h3>Diagnóstico e Correção</h3>
+                <p>A IA analisa seu PC: lentidão, drivers, malware, disco cheio, memória. Depois sugere as correções e executa com sua autorização. Você sempre sabe o que está acontecendo.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-                <h3>Suporte Humano</h3>
-                <p>A IA resolve 90% sozinha. Nos 10% restantes, um técnico humano assume em minutos pelo chat.</p>
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <h3>Manutenção Proativa</h3>
+                <p>Agende verificações automáticas: diárias, semanais ou mensais. A IA monitora desempenho, segurança e atualizações, gerando relatórios mesmo sem você pedir.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
-                <h3>Relatórios Mensais</h3>
-                <p>Receba no e-mail um resumo da saúde do seu PC: o que foi corrigido, status de segurança e desempenho.</p>
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                <h3>Segurança e Transparência</h3>
+                <p>Toda ação precisa da sua autorização. Nada é feito escondido. Conexão criptografada ponta a ponta. Seus arquivos pessoais nunca são acessados sem permissão.</p>
             </div>
         </div>
     </div>
@@ -305,71 +356,70 @@
         <div class="steps">
             <div class="step">
                 <div class="step-num">1</div>
-                <h3>Instale o Agente</h3>
-                <p>Um programa leve de ~5MB que roda em segundo plano. Instalação em 30 segundos, zero configuração.</p>
+                <h3>Baixe e Instale</h3>
+                <p>Baixe o agente para Windows ou Linux. É um programa leve, instalação rápida, zero configuração. Você não precisa digitar token nenhum.</p>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
-                <h3>Conecte à IA</h3>
-                <p>O agente se conecta automaticamente à nossa IA. Você recebe um link por e-mail pra acompanhar tudo.</p>
+                <h3>Conecte sua Conta</h3>
+                <p>O agente abre o navegador, você cria sua conta ou faz login, e o computador é vinculado automaticamente. Simples assim.</p>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
-                <h3>Pronto. Tá resolvido.</h3>
-                <p>A IA diagnostica, corrige e mantém seu PC saudável. Você recebe relatórios e só interage quando quiser.</p>
+                <h3>Converse com a IA</h3>
+                <p>Descreva o problema. A IA diagnostica, sugere ações, e executa com sua autorização. Você vê tudo acontecendo em tempo real.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="planos" class="section">
+<section id="creditos" class="section">
     <div class="container">
-        <span class="section-label">Planos</span>
-        <h2>Invista na saúde<br>do seu computador</h2>
-        <p class="subtitle">Planos acessíveis pra uso pessoal ou empresarial. Cancele quando quiser.</p>
-        <div class="pricing-grid">
-            <div class="plan">
-                <p class="plan-name">Grátis</p>
-                <div class="plan-price">R$0<span>/mês</span></div>
-                <p class="plan-desc">Pra quem quer experimentar</p>
-                <ul class="plan-features">
-                    <li>1 diagnóstico completo</li>
-                    <li>Limpeza de arquivos temporários</li>
-                    <li>Correções básicas automáticas</li>
-                    <li>Relatório de saúde do PC</li>
-                    <li>Suporte por e-mail</li>
+        <span class="section-label">Créditos</span>
+        <h2>Pague só pelo<br>que usar</h2>
+        <p class="subtitle">Sem mensalidade. Sem contrato. Sem surpresas.</p>
+        <div class="credits-grid">
+            <div class="credit-pack">
+                <p class="pack-name">Teste Grátis</p>
+                <div class="pack-price">Grátis</div>
+                <p class="pack-desc">Pra conhecer a plataforma</p>
+                <ul class="pack-features">
+                    <li>Créditos gratuitos iniciais</li>
+                    <li>Diagnóstico completo do PC</li>
+                    <li>Primeira conversa com a IA</li>
+                    <li>Sem cartão de crédito</li>
                 </ul>
-                <a href="#" class="btn btn-outline">Começar Grátis</a>
+                <a href="#download" class="btn btn-outline">Começar Grátis</a>
             </div>
-            <div class="plan plan-featured">
-                <div class="plan-badge">Mais popular</div>
-                <p class="plan-name">Pro</p>
-                <div class="plan-price">R$29,90<span>/mês</span></div>
-                <p class="plan-desc">Perfeito pra uso pessoal</p>
-                <ul class="plan-features">
-                    <li>Diagnósticos ilimitados</li>
-                    <li>Atualização automática de drivers</li>
-                    <li>Otimização contínua do Windows</li>
-                    <li>Monitoramento de segurança 24h</li>
-                    <li>Backup automático inteligente</li>
-                    <li>Suporte humano prioritário</li>
+            <div class="credit-pack credit-pack-featured">
+                <div class="pack-badge">Mais popular</div>
+                <p class="pack-name">Pacote Essencial</p>
+                <div class="pack-price">R$19,90</div>
+                <p class="pack-desc">Créditos para uso pessoal</p>
+                <ul class="pack-features">
+                    <li>Atendimentos com IA</li>
+                    <li>Diagnósticos e correções</li>
+                    <li>Relatórios de saúde do PC</li>
+                    <li>Créditos não expiram</li>
                 </ul>
-                <a href="#" class="btn btn-primary">Assinar Pro</a>
+                <a href="#download" class="btn btn-primary">Baixar e Começar →</a>
             </div>
-            <div class="plan">
-                <p class="plan-name">Empresarial</p>
-                <div class="plan-price">R$99,90<span>/mês</span></div>
-                <p class="plan-desc">Até 10 computadores</p>
-                <ul class="plan-features">
-                    <li>Tudo do plano Pro ×10 PCs</li>
+            <div class="credit-pack">
+                <p class="pack-name">Pacote Empresarial</p>
+                <div class="pack-price">R$79,90</div>
+                <p class="pack-desc">Múltiplas máquinas</p>
+                <ul class="pack-features">
+                    <li>Vários computadores</li>
                     <li>Painel de controle centralizado</li>
-                    <li>Políticas de segurança customizadas</li>
-                    <li>Relatórios de compliance</li>
-                    <li>Suporte humano 24/7 dedicado</li>
-                    <li>API para integração com ITSM</li>
+                    <li>Convites para equipe</li>
+                    <li>Manutenção proativa</li>
+                    <li>Relatórios por máquina</li>
                 </ul>
-                <a href="#" class="btn btn-outline">Falar com Vendas</a>
+                <a href="#download" class="btn btn-outline">Baixar e Começar →</a>
             </div>
+        </div>
+        <div class="no-subscription">
+            <p><strong>💡 Crédito pré-pago é diferente de assinatura.</strong> Você compra créditos, usa quando precisar. Seus créditos não expiram. Sem multa, sem letras miúdas, sem cobrança surpresa.</p>
         </div>
     </div>
 </section>
@@ -378,25 +428,25 @@
     <div class="container">
         <span class="section-label">Download</span>
         <h2>Instale o Agente</h2>
-        <p class="subtitle">Escolha seu sistema operacional e comece em 30 segundos.</p>
-        <div class="download-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px;">
-            <div class="plan" style="text-align:center;padding:40px 24px;">
+        <p class="subtitle">Escolha seu sistema operacional e comece agora. É grátis baixar e testar.</p>
+        <div class="download-grid">
+            <div class="os-card">
                 <svg class="os-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.45H0V3.449zm0 8.398h9.75V21.9L0 20.551zm10.697-9.595L24 0v11.55h-13.303zm0 18.348V12.45H24V24z"/></svg>
                 <h3 style="margin-bottom:4px;">Windows</h3>
                 <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Windows 10 e 11 &middot; 64 bits</p>
                 <a href="https://agent.pcresolve.com.br/meshagents?id=4" class="btn btn-primary" style="width:100%;justify-content:center;">Baixar Agente</a>
             </div>
-            <div class="plan" style="text-align:center;padding:40px 24px;">
+            <div class="os-card">
                 <svg class="os-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.209 3.209c.761 0 1.378.618 1.378 1.379s-.617 1.378-1.378 1.378c-.761 0-1.379-.617-1.379-1.378s.618-1.379 1.379-1.379zm3.659 12.775c-.361.355-1.057.78-2.088 1.277a.434.434 0 0 0-.2.389.434.434 0 0 0 .172.331c.31.252.487.437.532.555.044.118.035.212-.026.283-.062.071-.188.106-.38.106-.211 0-.431-.043-.66-.129-.229-.085-.384-.128-.464-.128-.043 0-.106.017-.192.051-.331.141-.596.211-.796.211-.317 0-.594-.092-.83-.275-.236-.183-.354-.474-.354-.873 0-.668.234-1.286.703-1.853.359-.424.716-.682 1.071-.775.109-.027.198-.032.269-.015.07.017.145.051.225.102.079.051.151.1.218.146.175.127.309.191.401.191.126 0 .262-.054.41-.162.148-.108.275-.212.381-.313.267-.268.447-.428.54-.48.193-.11.396-.166.607-.166.317 0 .572.096.766.289.194.193.291.446.291.758 0 .36-.144.68-.432.963z"/></svg>
                 <h3 style="margin-bottom:4px;">Linux</h3>
                 <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Ubuntu, Debian, Fedora &middot; x64</p>
-                <a href="https://agent.pcresolve.com.br/meshagents?id=6" class="btn btn-primary" style="width:100%;justify-content:center;">Baixar Agente</a>
+                <a href="https://agent.pcresolve.com.br/meshagents?id=6" class="btn btn-green" style="width:100%;justify-content:center;">Baixar Agente</a>
             </div>
-            <div class="plan" style="text-align:center;padding:40px 24px;opacity:0.5;">
+            <div class="os-card" style="opacity:0.6;">
                 <svg class="os-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.92.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.93-1.38 2.9-1.5.14 1.08-.32 2.17-.97 2.92-.7.8-1.86 1.42-2.97 1.33-.16-1.04.32-2.06 1.04-2.75"/></svg>
                 <h3 style="margin-bottom:4px;">macOS</h3>
                 <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Em breve</p>
-                <span class="btn btn-outline" style="width:100%;justify-content:center;cursor:default;">Em Breve</span>
+                <span class="btn btn-outline" style="width:100%;justify-content:center;cursor:default;opacity:0.5;">Em Breve</span>
             </div>
         </div>
     </div>
@@ -409,27 +459,31 @@
         <div class="faq-list">
             <details>
                 <summary>O agente é seguro? Ele acessa meus arquivos?</summary>
-                <p>Sim, 100% seguro. O agente só executa ações de diagnóstico e manutenção. Seus arquivos pessoais nunca são acessados ou enviados. Toda conexão é criptografada ponta a ponta. O agente usa criptografia ponta a ponta e pode ser auditado por especialistas independentes.</p>
+                <p>Sim, 100% seguro. O agente só executa ações que você autorizar. Seus arquivos pessoais nunca são acessados sem sua permissão explícita. Toda conexão é criptografada ponta a ponta.</p>
             </details>
             <details>
-                <summary>A IA realmente resolve sozinha ou tem um humano por trás?</summary>
-                <p>A IA resolve cerca de 90% dos problemas automaticamente: drivers, limpeza, otimização, atualizações, detecção de malware. Nos 10% que exigem decisão humana (ex: "quer formatar ou tentar recuperar?"), um técnico assume. Mas você sempre vê tudo que está sendo feito.</p>
+                <summary>Como funciona o crédito pré-pago?</summary>
+                <p>Você compra créditos uma vez e usa quando precisar. Cada conversa com a IA consome créditos de acordo com os tokens processados. Seus créditos não expiram. Quando acabar, é só comprar mais. Sem mensalidade, sem contrato, sem surpresa.</p>
             </details>
             <details>
-                <summary>Funciona em qualquer Windows?</summary>
-                <p>Windows 10 e 11. Versões Home e Pro. O agente pesa menos de 5MB e não consome recursos do PC quando não está em uso ativo.</p>
+                <summary>Preciso de conhecimento técnico pra usar?</summary>
+                <p>Não. Você só precisa descrever o problema em português, como se estivesse falando com um técnico. Exemplo: "Meu PC está muito lento para abrir programas". A IA entende, diagnostica e resolve.</p>
             </details>
             <details>
-                <summary>Preciso estar na frente do PC durante o suporte?</summary>
-                <p>Não. Você pode deixar a IA trabalhando enquanto faz outras coisas. Ela manda notificações quando concluir ou se precisar de sua confirmação pra alguma ação.</p>
+                <summary>Funciona em qualquer Windows? E Linux?</summary>
+                <p>Windows 10 e 11 (64 bits). Linux: Ubuntu, Debian, Fedora e derivados (64 bits). O agente é leve e não consome recursos quando não está em uso ativo.</p>
             </details>
             <details>
-                <summary>Posso cancelar a qualquer momento?</summary>
-                <p>Sim. Sem multa, sem letras miúdas. Cancele quando quiser e seu acesso continua até o fim do período pago.</p>
+                <summary>Posso usar em mais de um computador?</summary>
+                <p>Sim. Sua conta pode ter várias máquinas vinculadas. Os créditos são da conta — todos os computadores usam a mesma carteira. Ideal para famílias e pequenas empresas.</p>
+            </details>
+            <details>
+                <summary>A IA faz tudo sozinha ou tem um humano?</summary>
+                <p>A IA é sua primeira linha de suporte: diagnostica, sugere correções e executa ações seguras. Ela funciona 24 horas por dia, sem espera. Para casos complexos, a IA pode escalar para suporte humano especializado.</p>
             </details>
             <details>
                 <summary>Qual a diferença pra uma assistência técnica tradicional?</summary>
-                <p>A assistência técnica tradicional exige agendamento, deslocamento e tempo. A PC Resolve faz tudo remotamente, 24h: diagnóstico, drivers, limpeza, otimização do Windows, backup e atualizações — em minutos, sem sair de casa.</p>
+                <p>A assistência tradicional exige agendamento, deslocamento e tempo. A PC Resolve está disponível 24h, responde em segundos, e você paga só pelo que usar — sem taxa de visita, sem valor mínimo, sem espera.</p>
             </details>
         </div>
     </div>
@@ -438,9 +492,9 @@
 <section id="cta" class="section">
     <div class="container">
         <div class="cta-box">
-            <h2>Seu PC merece<br>um técnico 24h</h2>
-            <p>Experimente grátis. A IA faz o diagnóstico completo do seu PC em menos de 2 minutos.</p>
-            <a href="#" class="btn btn-primary" style="font-size:17px;padding:16px 36px;">Quero Meu Diagnóstico Grátis →</a>
+            <h2>Seu PC merece<br>um especialista 24h</h2>
+            <p>Baixe o agente grátis. Ganhe créditos iniciais e converse com a IA agora mesmo.</p>
+            <a href="#download" class="btn btn-primary" style="font-size:17px;padding:16px 36px;">Baixar Agente Grátis →</a>
         </div>
     </div>
 </section>
@@ -448,13 +502,15 @@
 <footer>
     <div class="container">
         <div class="footer-links">
-            <a href="#download">Planos</a>
+            <a href="#recursos">Recursos</a>
+            <a href="#creditos">Créditos</a>
+            <a href="#download">Download</a>
             <a href="#">Termos de Uso</a>
             <a href="#">Privacidade</a>
             <a href="mailto:suporte@pcresolve.com.br">suporte@pcresolve.com.br</a>
-            <a href="https://agent.pcresolve.com.br">Painel</a>
+            <a href="https://app.pcresolve.com.br">Portal do Cliente</a>
         </div>
-        <p>© 2026 PC Resolve — Eu Faço Seu Marketing. </p>
+        <p>© 2026 PC Resolve — Eu Faço Seu Marketing.</p>
     </div>
 </footer>
 
