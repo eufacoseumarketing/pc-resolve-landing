@@ -1,485 +1,643 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Resolve — Suporte Inteligente para seu Computador</title>
-    <meta name="description" content="Deixe a IA resolver problemas do seu PC. Primeiro atendimento grátis, crédito pré-pago, sem mensalidade. Suporte para Windows e Linux. Simples e rápido!">
-    <meta name="keywords" content="suporte remoto, IA, PC, computador, manutenção, inteligência artificial, crédito, pré-pago, Windows, Linux">
-    <meta name="author" content="PC Resolve">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://pcresolve.com.br/">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="PC Resolve — Suporte Inteligente para seu Computador">
-    <meta property="og:description" content="Deixe a IA resolver problemas do seu PC. Primeiro atendimento grátis. Crédito pré-pago, sem mensalidade.">
-    <meta property="og:url" content="https://pcresolve.com.br/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="PC Resolve">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PC Resolve — Suporte Inteligente para seu Computador">
-    <meta name="twitter:description" content="Deixe a IA resolver problemas do seu PC. Primeiro atendimento grátis. Crédito pré-pago.">
-    
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "PC Resolve",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "Windows, Linux, macOS",
-      "description": "Suporte remoto inteligente com IA. Deixe a inteligência artificial diagnosticar e resolver problemas no seu computador — você só autoriza.",
-      "offers": {
-        "@type": "Offer",
-        "description": "Crédito pré-pago a partir de R$19,90",
-        "priceCurrency": "BRL"
-      }
-    }
-    </script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        :root {
-            --bg: #09090b;
-            --bg2: #131316;
-            --bg3: #1a1a20;
-            --border: #27272a;
-            --text: #f4f4f5;
-            --text2: #a1a1aa;
-            --accent: #8B5CF6;
-            --accent2: #A78BFA;
-            --accent-glow: rgba(139, 92, 246, 0.15);
-            --green: #4ADE80;
-            --green-glow: rgba(74, 222, 128, 0.12);
-            --amber: #FBBF24;
-            --amber-glow: rgba(251, 191, 36, 0.1);
-            --radius: 12px;
-            --radius-lg: 20px;
-            --max: 1100px;
-        }
-        
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        /* ─── Utility ─── */
-        .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-        .section { padding: 100px 0; }
-        .section-label { 
-            display: inline-block; font-size: 13px; font-weight: 600; 
-            letter-spacing: 1.5px; text-transform: uppercase;
-            color: var(--accent2); margin-bottom: 16px;
-        }
-        h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
-        .subtitle { color: var(--text2); font-size: 18px; max-width: 600px; }
-        .btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 600;
-            text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
-            font-family: inherit; white-space: nowrap;
-        }
-        .btn-primary { 
-            background: var(--accent); color: #fff; 
-            box-shadow: 0 0 30px var(--accent-glow);
-        }
-        .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 0 45px var(--accent-glow); }
-        .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-        .btn-outline:hover { border-color: var(--accent); color: var(--accent2); }
-        .btn-green { background: var(--green); color: #000; }
-        .btn-green:hover { filter: brightness(1.1); transform: translateY(-2px); }
-        
-        /* ─── Header ─── */
-        header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(9,9,11,0.85); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-        header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-        .logo { font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
-        .logo span { color: var(--accent); }
-        nav { display: flex; gap: 24px; align-items: center; }
-        nav a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.15s; }
-        nav a:hover { color: var(--text); }
-        .mobile-menu { display: none; }
-        
-        /* ─── Hero ─── */
-        #hero { padding: 160px 0 100px; text-align: center; position: relative; overflow: hidden; }
-        #hero::before {
-            content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
-            width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        #hero h1 {
-            font-size: clamp(36px, 6vw, 64px); font-weight: 800; letter-spacing: -1.5px;
-            line-height: 1.08; margin-bottom: 24px; position: relative;
-        }
-        #hero h1 span { 
-            background: linear-gradient(135deg, var(--accent), var(--green));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        #hero p { font-size: 19px; color: #d4d4d8; max-width: 580px; margin: 0 auto 32px; position: relative; line-height: 1.55; }
-        #hero .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
-        
-        /* ─── Features ─── */
-        #features { background: var(--bg2); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; margin-top: 48px; }
-        .feature-card {
-            background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-lg);
-            padding: 32px; transition: all 0.25s;
-        }
-        .feature-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-        .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
-        .feature-icon svg { width: 40px; height: 40px; }
-        .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-        .feature-card p { color: #d4d4d8; font-size: 15px; line-height: 1.5; }
-        
-        /* ─── How it works ─── */
-        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 48px; }
-        .step {
-            text-align: center; padding: 40px 24px;
-            border: 1px solid var(--border); border-radius: var(--radius-lg);
-            position: relative;
-        }
-        .step-num {
-            width: 48px; height: 48px; border-radius: 50%;
-            background: var(--accent); color: #fff; font-size: 20px; font-weight: 700;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 20px;
-        }
-        .step h3 { font-size: 18px; margin-bottom: 8px; }
-        .step p { color: #d4d4d8; font-size: 15px; line-height: 1.5; }
-        
-        /* ─── Credits / Pricing ─── */
-        #creditos { background: var(--bg2); }
-        .credits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
-        .no-subscription {
-            margin-top: 36px; text-align: center; padding: 24px;
-            background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius);
-        }
-        .no-subscription p { color: var(--text2); font-size: 15px; }
-        .no-subscription strong { color: var(--green); }
-        
-        /* ─── Download ─── */
-        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 48px; }
-        .os-card {
-            background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-lg);
-            padding: 40px 24px; text-align: center; transition: all 0.25s;
-        }
-        .os-card:hover { border-color: var(--accent); }
-        .os-icon { width: 56px; height: 56px; margin: 0 auto 16px; display: block; }
-        .os-icon svg { width: 100%; height: 100%; }
-        
-        /* ─── FAQ ─── */
-        .faq-list { max-width: 700px; margin: 48px auto 0; }
-        details { border-bottom: 1px solid var(--border); padding: 24px 0; }
-        details summary {
-            font-size: 17px; font-weight: 600; cursor: pointer; list-style: none;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        details summary::after { content: '+'; font-size: 22px; color: var(--accent); font-weight: 400; }
-        details[open] summary::after { content: '−'; }
-        details p { margin-top: 12px; color: var(--text2); font-size: 15px; }
-        
-        /* ─── CTA ─── */
-        #cta { text-align: center; }
-        .cta-box {
-            background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(74,222,128,0.08));
-            border: 1px solid rgba(139,92,246,0.2); border-radius: var(--radius-lg);
-            padding: 64px 32px; max-width: 650px; margin: 0 auto;
-        }
-        .cta-box h2 { margin-bottom: 12px; }
-        .cta-box p { color: var(--text2); margin-bottom: 28px; }
-        
-        /* ─── Badges row ─── */
-        .badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
-        .badge-item {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 6px 14px; border-radius: 999px;
-            background: var(--bg3); border: 1px solid var(--border);
-            font-size: 13px; color: var(--text2);
-        }
-        .badge-item svg { width: 16px; height: 16px; }
-        
-        /* ─── Footer ─── */
-        footer {
-            border-top: 1px solid var(--border); padding: 48px 0;
-            text-align: center; color: var(--text2); font-size: 14px;
-        }
-        footer a { color: var(--accent2); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
-        
-        /* ─── Responsive ─── */
-        @media (max-width: 768px) {
-            .section { padding: 64px 0; }
-            #hero { padding: 120px 0 64px; }
-            nav { display: none; }
-            .mobile-menu { display: inline-flex; }
-            .credits-grid, .features-grid, .steps, .download-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
-            .badges { flex-direction: column; align-items: center; }
-        }
-        
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation: none !important; transition: none !important; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Resolve — Suporte Inteligente para seu Computador</title>
+  <meta name="description" content="IA que diagnostica e resolve problemas do seu computador em segundos. Primeiro atendimento grátis. Crédito pré-pago, sem mensalidade. Funciona no Windows, Linux e macOS.">
+  <meta name="keywords" content="suporte remoto, IA, PC, computador, manutenção, inteligência artificial, crédito pré-pago, Windows, Linux">
+  <meta name="author" content="PC Resolve">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pcresolve.com.br/">
+
+  <meta property="og:title" content="PC Resolve — IA que resolve problemas do seu computador">
+  <meta property="og:description" content="Diagnóstico em segundos. Correção com a sua autorização. Primeiro atendimento grátis.">
+  <meta property="og:url" content="https://pcresolve.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PC Resolve">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PC Resolve — IA que resolve problemas do seu computador">
+  <meta name="twitter:description" content="Diagnóstico em segundos. Correção com a sua autorização. Primeiro atendimento grátis.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PC Resolve",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Windows, Linux, macOS",
+    "description": "Suporte remoto inteligente com IA. Diagnostica e resolve problemas no computador com a autorização do usuário.",
+    "offers": { "@type": "Offer", "description": "Crédito pré-pago a partir de R$19,90", "priceCurrency": "BRL" }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <a href="/" class="logo">PC<span>Resolve</span></a>
-        <nav>
-            <a href="#recursos">Recursos</a>
-            <a href="#como-funciona">Como Funciona</a>
-            <a href="#creditos">Créditos</a>
-            <a href="#download">Download</a>
-            <a href="#faq">FAQ</a>
-            <a href="#download" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Baixar Grátis</a>
-        </nav>
-        <a href="#download" class="btn btn-primary mobile-menu" style="padding:10px 20px;font-size:14px;">Baixar</a>
-    </div>
+<!-- ── HEADER ── -->
+<header class="header">
+  <div class="header__inner">
+    <a href="/" class="logo">PC<em>Resolve</em></a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="#recursos">Recursos</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#creditos">Créditos</a>
+      <a href="#download">Download</a>
+      <a href="#faq">FAQ</a>
+      <a href="#download" class="btn btn-primary" style="padding:9px 20px;font-size:14px;">Baixar Grátis</a>
+    </nav>
+
+    <button class="hamburger" id="ham" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
-<section id="hero" class="section">
-    <div class="container">
-        <h1>Seu PC com problema?<br><span>Deixe a IA Resolver.</span></h1>
-        <p>Instale o agente em 30 segundos. A IA faz o diagnóstico, sugere as correções e resolve — você só autoriza. Simples, rápido e sem complicação.</p>
-        <div class="cta-group">
-            <a href="#download" class="btn btn-primary">Primeiro Atendimento Grátis →</a>
-            <a href="#como-funciona" class="btn btn-outline">Como Funciona</a>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+  <a href="#recursos">Recursos</a>
+  <a href="#como-funciona">Como Funciona</a>
+  <a href="#creditos">Créditos</a>
+  <a href="#download">Download</a>
+  <a href="#faq">FAQ</a>
+  <a href="#download" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Baixar Grátis</a>
+</nav>
+
+
+<!-- ── HERO ── -->
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero__layout">
+
+      <!-- Texto -->
+      <div>
+        <div class="hero__badge">Agora disponível</div>
+        <h1>
+          Problemas no seu Computador?<br>
+          <span>A gente resolve agora.</span>
+        </h1>
+        <p class="hero__sub">
+          Instale o agente em 30 segundos. Descreva o problema em português.
+          A IA analisa a máquina, encontra o que está errado e corrige com a sua autorização.
+        </p>
+        <div class="hero__cta">
+          <a href="#download" class="btn btn-primary btn-lg">Baixar Grátis</a>
+          <a href="#como-funciona" class="btn btn-outline">Como funciona</a>
         </div>
-        <div class="badges">
-            <span class="badge-item">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M0 3.449L9.75 2.1v9.45H0V3.449zm0 8.398h9.75V21.9L0 20.551zm10.697-9.595L24 0v11.55h-13.303zm0 18.348V12.45H24V24z"/></svg>
-                Windows
-            </span>
-            <span class="badge-item">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0z"/></svg>
-                Linux
-            </span>
-            <span class="badge-item">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.92.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.93-1.38 2.9-1.5.14 1.08-.32 2.17-.97 2.92-.7.8-1.86 1.42-2.97 1.33-.16-1.04.32-2.06 1.04-2.75"/></svg>
-                macOS (em breve)
-            </span>
-            <span class="badge-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                Crédito pré-pago
-            </span>
+        <p class="hero__free-note">Primeiro atendimento grátis. Sem cartão de crédito.</p>
+        <div class="hero__pills">
+          <span class="pill">
+            <svg width="13" height="13" viewBox="0 0 88 88" aria-hidden="true">
+              <rect x="0"  y="0"  width="40" height="40" fill="#F35325"/>
+              <rect x="48" y="0"  width="40" height="40" fill="#81BC06"/>
+              <rect x="0"  y="48" width="40" height="40" fill="#05A6F0"/>
+              <rect x="48" y="48" width="40" height="40" fill="#FFBA08"/>
+            </svg>
+            Windows 10 e 11
+          </span>
+          <span class="pill">
+            <img src="img/tux.svg" width="14" height="14" alt="" aria-hidden="true" style="object-fit:contain;">
+            Linux
+          </span>
+          <span class="pill">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#A8A8B3" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.92.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.93-1.38 2.9-1.5.14 1.08-.32 2.17-.97 2.92-.7.8-1.86 1.42-2.97 1.33-.16-1.04.32-2.06 1.04-2.75"/>
+            </svg>
+            macOS
+          </span>
+          <span class="pill-break"></span>
+          <span class="pill" style="color:var(--green);">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Sem mensalidade
+          </span>
+          <span class="pill" style="color:var(--amber);">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+            Disponível 24h
+          </span>
         </div>
+      </div>
+
+      <!-- Chat mockup -->
+      <div class="chat-window" role="img" aria-label="Demonstração do chat com a IA do PC Resolve">
+        <div class="chat-topbar">
+          <div class="chat-topbar__dot" aria-hidden="true"></div>
+          <span class="chat-topbar__name">PC Resolve IA</span>
+          <span class="chat-topbar__status">Online agora</span>
+        </div>
+        <div class="chat-body" id="chatMessages" aria-live="polite"></div>
+        <div class="chat-actions" id="chatActions" style="display:none;">
+          <a href="#download" class="btn btn-primary">Autorizar Limpeza</a>
+          <button class="btn btn-outline">Ver Detalhes</button>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
 
+
+<!-- ── STATS ── -->
+<div class="stats-bar" aria-label="Destaques do produto">
+  <div class="stats-bar__inner" data-stagger>
+    <div class="stat">
+      <div class="stat__value">24<em>h</em></div>
+      <div class="stat__label">disponível por dia</div>
+    </div>
+    <div class="stat">
+      <div class="stat__value">&lt;30<em>s</em></div>
+      <div class="stat__label">para o diagnóstico</div>
+    </div>
+    <div class="stat">
+      <div class="stat__value">R$<em>0</em></div>
+      <div class="stat__label">para começar</div>
+    </div>
+    <div class="stat">
+      <div class="stat__value">3<em> plataformas</em></div>
+      <div class="stat__label">Windows, Linux e macOS</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── RECURSOS ── -->
 <section id="recursos" class="section">
-    <div class="container">
-        <span class="section-label">Recursos</span>
-        <h2>Tudo que seu PC precisa<br>num só lugar</h2>
-        <p class="subtitle">Para você, sua família ou sua empresa. De um computador a dezenas — a IA resolve.</p>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-                <h3>IA que Resolve</h3>
-                <p>Descreva o problema em português. A IA entende, diagnostica e resolve — drivers, lentidão, disco cheio, malware. Você só autoriza as ações.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-                <h3>Windows, Linux e macOS</h3>
-                <p>Não importa o sistema operacional. O agente da PC Resolve funciona no Windows, nas principais distribuições Linux e em breve no macOS.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><line x1="12" y1="18" x2="12" y2="22"/></svg></span>
-                <h3>Crédito Pré-pago</h3>
-                <p>Sem mensalidade, sem contrato. Você compra créditos quando precisar. Cada atendimento da IA consome créditos de forma transparente. Seu saldo, seu controle.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
-                <h3>Diagnóstico e Correção</h3>
-                <p>A IA analisa seu PC: lentidão, drivers, malware, disco cheio, memória. Depois sugere as correções e executa com sua autorização. Você sempre sabe o que está acontecendo.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-                <h3>Manutenção Proativa</h3>
-                <p>Agende verificações automáticas: diárias, semanais ou mensais. A IA monitora desempenho, segurança e atualizações, gerando relatórios mesmo sem você pedir.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-                <h3>Segurança e Transparência</h3>
-                <p>Toda ação precisa da sua autorização. Nada é feito escondido. Conexão criptografada ponta a ponta. Seus arquivos pessoais nunca são acessados sem permissão.</p>
-            </div>
+  <div class="container">
+    <span class="label" data-reveal>Recursos</span>
+    <h2 data-reveal>Tudo que seu computador precisa,<br>num só lugar</h2>
+    <p class="subtitle" data-reveal>Para uso pessoal ou para gerenciar os PCs da sua empresa.</p>
+
+    <div class="features-grid" data-stagger>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon--cyan" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
         </div>
+        <h3>IA que diagnostica e corrige</h3>
+        <p>Descreva o problema em português. A IA analisa a máquina, identifica a causa e propõe a solução em segundos, sem precisar de jargão técnico.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon--green" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>Você decide cada ação</h3>
+        <p>Nada é feito sem a sua aprovação. Cada correção é explicada com clareza antes de você autorizar. Você sempre sabe o que está acontecendo.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon--amber" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>Manutenção automática</h3>
+        <p>Configure verificações periódicas para cada máquina. A IA monitora o desempenho, gera relatórios e avisa quando algo precisa de atenção.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon--cyan" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3>Windows, Linux e macOS</h3>
+        <p>Compatível com Windows 10 e 11, principais distribuições Linux e macOS 12 ou superior. Instalação simples, sem nenhuma configuração técnica.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon--green" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
+            <line x1="12" y1="18" x2="12" y2="22"/><line x1="12" y1="6" x2="12" y2="8"/>
+          </svg>
+        </div>
+        <h3>Crédito pré-pago</h3>
+        <p>Compre créditos uma vez e use quando precisar. Sem mensalidade, sem contrato, sem cobranças automáticas. Os créditos não têm validade.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon feature-icon--blue" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3>Várias máquinas, uma conta</h3>
+        <p>Gerencie todos os computadores da sua casa ou empresa por uma conta só. Os créditos são compartilhados entre todas as máquinas vinculadas.</p>
+      </div>
+
     </div>
+  </div>
 </section>
 
-<section id="como-funciona" class="section">
-    <div class="container">
-        <span class="section-label">Como Funciona</span>
-        <h2>Em 3 passos,<br>seu PC resolvido</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-num">1</div>
-                <h3>Baixe e Instale</h3>
-                <p>Baixe o agente para Windows ou Linux. Programa leve, instalação em 30 segundos, zero configuração.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <h3>Autorize o Acesso</h3>
-                <p>O agente reconhece seu PC automaticamente. Você clica em "Autorizar" e pronto — nada de tokens ou senhas.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">3</div>
-                <h3>Deixe a IA Trabalhar</h3>
-                <p>Descreva o problema. A IA diagnostica e resolve. Você acompanha tudo, autoriza as ações e recebe o relatório.</p>
-            </div>
-        </div>
+
+<!-- ── COMO FUNCIONA ── -->
+<section id="como-funciona" class="section section--alt">
+  <div class="container" style="text-align:center;">
+    <span class="label" data-reveal>Como Funciona</span>
+    <h2 data-reveal>Em 3 passos, seu PC resolvido</h2>
+    <p class="subtitle" data-reveal style="margin:0 auto;">Sem conhecimento técnico. Sem agendamento. Sem esperar.</p>
+
+    <div class="steps" data-stagger>
+      <div class="step">
+        <div class="step__num" aria-hidden="true">1</div>
+        <h3>Instale o agente</h3>
+        <p>Baixe o programa para Windows ou Linux. A instalação leva menos de 30 segundos e não exige nenhuma configuração.</p>
+      </div>
+      <div class="step">
+        <div class="step__num" aria-hidden="true">2</div>
+        <h3>Conecte sua conta</h3>
+        <p>O agente identifica o computador automaticamente. Clique em autorizar e o chat com a IA fica disponível na hora.</p>
+      </div>
+      <div class="step">
+        <div class="step__num" aria-hidden="true">3</div>
+        <h3>A IA resolve</h3>
+        <p>Descreva o que está acontecendo. A IA analisa, propõe a correção e executa com a sua aprovação. Você acompanha tudo.</p>
+      </div>
     </div>
+  </div>
 </section>
 
+
+<!-- ── PARA QUEM ── -->
+<section id="para-quem" class="section">
+  <div class="container">
+    <span class="label" data-reveal>Para quem é</span>
+    <h2 data-reveal>Para casa ou para a empresa</h2>
+    <p class="subtitle" data-reveal>Um produto, dois perfis. A mesma tecnologia que resolve o computador da sua casa também gerencia toda a frota da sua empresa.</p>
+
+    <div class="audience-grid">
+
+      <div class="audience-card audience-card--personal" data-reveal>
+        <span class="audience-tag audience-tag--personal">Uso Pessoal</span>
+        <h3>Para você e sua família</h3>
+        <p>Não precisa entender nada de tecnologia. Instale, descreva o problema em português e a IA cuida do resto, como ter um técnico de confiança disponível a qualquer hora.</p>
+        <ul>
+          <li>Computador lento ou travando</li>
+          <li>Programas que demoram a abrir</li>
+          <li>Problemas com o Windows Update</li>
+          <li>Disco quase cheio sem saber o porquê</li>
+          <li>Dificuldades gerais no computador</li>
+          <li>Primeiro atendimento grátis</li>
+        </ul>
+      </div>
+
+      <div class="audience-card audience-card--business" data-reveal>
+        <span class="audience-tag audience-tag--business">Para Empresas</span>
+        <h3>Para pequenas e médias empresas</h3>
+        <p>Gerencie todos os computadores da empresa por uma única conta. Configure manutenção automática, acesse qualquer máquina remotamente e tenha histórico completo de cada atendimento.</p>
+        <ul>
+          <li>Instale em cada máquina via link de convite</li>
+          <li>Monitore o status de todos os PCs em um painel</li>
+          <li>Acesse e diagnostique qualquer máquina sem estar presente</li>
+          <li>Manutenção proativa por máquina com relatório</li>
+          <li>Histórico completo de atendimentos</li>
+          <li>Créditos compartilhados entre todas as máquinas</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── DEPOIMENTOS ── -->
+<section id="depoimentos" class="section section--alt">
+  <div class="container">
+    <span class="label" data-reveal>Depoimentos</span>
+    <h2 data-reveal>Quem já usou, aprovou</h2>
+
+    <div class="testimonials-grid" data-stagger>
+
+      <div class="tcard">
+        <div class="tcard__stars" aria-label="5 estrelas">★★★★★</div>
+        <blockquote>
+          "Ia chamar um técnico que cobra R$150 pela visita.
+          O PC Resolve resolveu em 10 minutos, de graça no primeiro atendimento.
+          Nunca mais precisei esperar."
+        </blockquote>
+        <div class="tcard__author">
+          <div class="avatar avatar--1" aria-hidden="true">RC</div>
+          <div>
+            <div class="tcard__name">Roberto C.</div>
+            <div class="tcard__role">Uso pessoal, São Paulo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <div class="tcard__stars" aria-label="5 estrelas">★★★★★</div>
+        <blockquote>
+          "Tenho 8 computadores no escritório e gerencio todos com uma conta só.
+          Antes cada um tinha plano separado.
+          Ficou muito mais simples e barato."
+        </blockquote>
+        <div class="tcard__author">
+          <div class="avatar avatar--2" aria-hidden="true">JP</div>
+          <div>
+            <div class="tcard__name">Juliana P.</div>
+            <div class="tcard__role">Gestora administrativa, Campinas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <div class="tcard__stars" aria-label="5 estrelas">★★★★★</div>
+        <blockquote>
+          "Minha mãe de 67 anos conseguiu usar sem ajuda.
+          Ela descreveu o que estava acontecendo e a IA resolveu tudo.
+          Ficou surpresa com o resultado."
+        </blockquote>
+        <div class="tcard__author">
+          <div class="avatar avatar--3" aria-hidden="true">MT</div>
+          <div>
+            <div class="tcard__name">Marcos T.</div>
+            <div class="tcard__role">Desenvolvedor, Belo Horizonte</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CRÉDITOS ── -->
 <section id="creditos" class="section">
-    <div class="container">
-        <span class="section-label">Créditos</span>
-        <h2>Primeiro atendimento<br>é por nossa conta</h2>
-        <p class="subtitle">Depois, você compra créditos e paga só quando usar. Para 1 computador ou para sua empresa inteira.</p>
-        
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px;">
-            <div style="background:var(--bg3);border:1px solid #2e2e35;border-radius:var(--radius-lg);padding:36px 28px;text-align:center;">
-                <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                </div>
-                <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Crédito Pré-pago</h3>
-                <p style="color:#d4d4d8;font-size:15px;line-height:1.55;">Compre créditos uma vez, use quando precisar. Sem mensalidade, sem contrato, sem surpresa no cartão.</p>
-            </div>
-            <div style="background:var(--bg3);border:1px solid #2e2e35;border-radius:var(--radius-lg);padding:36px 28px;text-align:center;">
-                <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(74,222,128,0.3),rgba(74,222,128,0.15));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Não Expira</h3>
-                <p style="color:#d4d4d8;font-size:15px;line-height:1.55;">Seus créditos ficam lá até você usar. Comprou hoje, usou daqui 6 meses? Sem problema.</p>
-            </div>
-            <div style="background:var(--bg3);border:1px solid #2e2e35;border-radius:var(--radius-lg);padding:36px 28px;text-align:center;">
-                <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(251,191,36,0.3),rgba(251,191,36,0.1));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                </div>
-                <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">Vários Computadores</h3>
-                <p style="color:#d4d4d8;font-size:15px;line-height:1.55;">Uma conta, vários PCs. Ideal pra famílias e pequenas empresas. Mesma carteira de créditos pra todos.</p>
-            </div>
+  <div class="container">
+    <span class="label" data-reveal>Créditos</span>
+    <h2 data-reveal>Pague só pelo que usar</h2>
+    <p class="subtitle" data-reveal>Compre créditos quando precisar. Sem mensalidade, sem contrato e sem data de vencimento.</p>
+
+    <div class="credits-grid" data-stagger>
+
+      <div class="credit-card">
+        <div class="credit-icon" style="background:rgba(74,222,128,.1);" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
         </div>
-        
-        <div class="no-subscription" style="margin-top:48px;max-width:600px;margin-left:auto;margin-right:auto;background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(74,222,128,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:var(--radius-lg);padding:32px;text-align:center;">
-            <p style="font-size:17px;font-weight:600;color:#f4f4f5;margin-bottom:8px;">🎫 Primeiro atendimento grátis</p>
-            <p style="color:#d4d4d8;font-size:15px;line-height:1.6;">Baixe o agente e ganhe créditos iniciais para testar. Depois é só comprar mais — pelo <strong style="color:#f4f4f5;">app.pcresolve.com.br</strong>, com pagamento via cartão de crédito.</p>
+        <h3>Pré-pago, sem cobrança automática</h3>
+        <p>Escolha o pacote de créditos, pague uma vez e use quando quiser. Sem mensalidade, sem contrato.</p>
+      </div>
+
+      <div class="credit-card">
+        <div class="credit-icon" style="background:rgba(0,200,255,.08);" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
         </div>
+        <h3>Créditos sem prazo de validade</h3>
+        <p>Comprou hoje e vai usar daqui a seis meses? Sem problema. Os créditos ficam na sua conta até você usar.</p>
+      </div>
+
+      <div class="credit-card">
+        <div class="credit-icon" style="background:rgba(251,191,36,.1);" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3>Uma carteira para todos</h3>
+        <p>Os créditos são da conta, não da máquina. Todos os computadores vinculados usam a mesma carteira.</p>
+      </div>
+
     </div>
+
+    <div class="credits-note" data-reveal>
+      <p>
+        No primeiro atendimento de cada computador novo, você ganha créditos para começar.
+        Depois é só recarregar pelo portal.
+        Pagamento via cartão de crédito em <strong>app.pcresolve.com.br</strong>.
+      </p>
+    </div>
+  </div>
 </section>
 
-<section id="download" class="section">
-    <div class="container">
-        <span class="section-label">Download</span>
-        <h2>Instale o Agente</h2>
-        <p class="subtitle">Escolha seu sistema operacional e comece agora. É grátis baixar e testar.</p>
-        <div class="download-grid">
-            <div class="os-card">
-                <svg class="os-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.45H0V3.449zm0 8.398h9.75V21.9L0 20.551zm10.697-9.595L24 0v11.55h-13.303zm0 18.348V12.45H24V24z"/></svg>
-                <h3 style="margin-bottom:4px;">Windows</h3>
-                <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Windows 10 e 11 &middot; 64 bits</p>
-                <a href="https://agent.pcresolve.com.br/meshagents?id=4" class="btn btn-primary" style="width:100%;justify-content:center;">Baixar Agente</a>
-            </div>
-            <div class="os-card">
-                <svg class="os-icon" viewBox="0 0 1024 1024" fill="currentColor"><path d="M449.6 244.8c0 3.2-3.2 6.4-6.4 6.4s-3.2-3.2-3.2-6.4h9.6z m0 0c0-3.2 3.2-6.4 9.6-6.4-9.6 0-12.8 3.2-16 6.4h6.4z m57.6-6.4c-3.2-3.2-9.6-3.2-16 0 6.4 0 6.4 0 9.6 3.2l6.4-3.2z m0 0c3.2 3.2 3.2 6.4 0 6.4s-3.2 0-6.4-3.2l6.4-3.2zM310.4 486.4c-6.4-3.2-3.2 9.6-9.6 16-3.2 6.4-12.8 12.8-6.4 12.8 3.2 0 9.6-6.4 12.8-12.8 3.2-9.6 6.4-12.8 3.2-16z m480 204.8c0-9.6-22.4-19.2-32-22.4 16-51.2 9.6-70.4-3.2-118.4-6.4-35.2-41.6-84.8-67.2-102.4 6.4 6.4 19.2 22.4 32 48 22.4 41.6 44.8 105.6 32 156.8-6.4 19.2-19.2 22.4-27.2 22.4-38.4 3.2-16-48-32-118.4-19.2-80-38.4-84.8-41.6-88-22.4-102.4-48-92.8-57.6-131.2-6.4-35.2 27.2-64-19.2-73.6-16-3.2-38.4-19.2-44.8-19.2-9.6 0-12.8-57.6 19.2-57.6 32-3.2 35.2 35.2 32 51.2-9.6 16 0 19.2 16 16 12.8-3.2 3.2-35.2 6.4-41.6-6.4-48-27.2-54.4-48-57.6-76.8 6.4-41.6 92.8-51.2 83.2-12.8-12.8-44.8 0-44.8-9.6 0-44.8-12.8-70.4-35.2-70.4-22.4 0-32 32-32 48-3.2 16 9.6 51.2 19.2 51.2 6.4-3.2 16-12.8 6.4-12.8-6.4 0-12.8-12.8-12.8-25.6 0-16 6.4-27.2 25.6-27.2 22.4 0 22.4 44.8 19.2 48l-16 16c-6.4 12.8-22.4 16-25.6 19.2-9.6 9.6-12.8 22.4-3.2 25.6 25.6 16 16 32 54.4 32 22.4 0 41.6-3.2 57.6-9.6 12.8-3.2 51.2-12.8 60.8-25.6 3.2-6.4 9.6-6.4 12.8-3.2 6.4 3.2 6.4 12.8-6.4 16-19.2 6.4-38.4 16-57.6 22.4-16 6.4-22.4 9.6-38.4 12.8-38.4 6.4-64-12.8-41.6 9.6 9.6 6.4 16 12.8 38.4 12.8 48-3.2 99.2-57.6 105.6-32 0 6.4-16 12.8-25.6 19.2-44.8 22.4-76.8 64-102.4 51.2-25.6-12.8-51.2-76.8-51.2-48 0 44.8-57.6 83.2-32 131.2-16 3.2-57.6 84.8-60.8 131.2-3.2 25.6 3.2 54.4-3.2 73.6-9.6 25.6-48-22.4-35.2-83.2 3.2-9.6 0-12.8-3.2-6.4-16 27.2-6.4 67.2 6.4 92.8 6.4 12.8 19.2 16 27.2 25.6 19.2 22.4 99.2 80 112 96 16 16 12.8 54.4-22.4 57.6 19.2 35.2 35.2 38.4 35.2 96 22.4-12.8 12.8-35.2 3.2-51.2-6.4-12.8-12.8-16-12.8-19.2s12.8-12.8 19.2-3.2c19.2 22.4 54.4 25.6 92.8 19.2 38.4-3.2 80-19.2 99.2-48 9.6-16 16-19.2 19.2-16s6.4 12.8 6.4 27.2c0 19.2-6.4 35.2-12.8 51.2s-6.4 27.2 9.6 27.2c3.2-32 12.8-64 16-96 3.2-35.2-22.4-102.4 6.4-137.6 6.4-9.6 16-9.6 27.2-9.6-9.6-48 59.2-44.8 81.6-25.6zM436.8 220.8c3.2-12.8-3.2-25.6-6.4-25.6-6.4-3.2-6.4 9.6-3.2 6.4 3.2 0 6.4 3.2 3.2 9.6 0 6.4 0 12.8 6.4 9.6 0 3.2 0 3.2 0 0z m236.8 112c-3.2-9.6-9.6-6.4-19.2-12.8s-12.8-19.2-16-12.8c-12.8 12.8 16 41.6 25.6 41.6 4.8 1.6 12.8-6.4 9.6-16z m-99.2-121.6c0-12.8-12.8-19.2-12.8-19.2-6.4 0-6.4 3.2-3.2 6.4 3.2 0 9.6 9.6 9.6 16 0 3.2 6.4 0 6.4-3.2z m27.2-129.6c0-3.2-6.4-6.4-12.8-9.6-3.2-3.2-9.6-9.6-12.8-9.6-12.8 0-6.4 12.8-6.4 19.2-3.2 6.4-9.6 12.8-6.4 16 6.4 3.2 9.6-6.4 19.2-9.6 4.8 0 16 0 19.2-6.4z m321.6 760c70.4 41.6-25.6 80-67.2 99.2-32 16-76.8 51.2-88 67.2-12.8 12.8-60.8 16-88 3.2-32-16-16-41.6-64-44.8h-73.6c-22.4 0-41.6 3.2-64 3.2-73.6 3.2-83.2 51.2-131.2 48-32 0-73.6-25.6-145.6-41.6-51.2-9.6-99.2-12.8-108.8-35.2-9.6-22.4 12.8-48 12.8-70.4 3.2-27.2-22.4-67.2-3.2-83.2 16-12.8 44.8-3.2 67.2-16 22.4-12.8 32-22.4 32-48 6.4 25.6 0 48-19.2 60.8-9.6 6.4-32 9.6-48 9.6-12.8 0-22.4 0-25.6 6.4-6.4 6.4-3.2 16 3.2 32s12.8 25.6 12.8 41.6c0 19.2-22.4 38.4-16 54.4 0 6.4 6.4 9.6 22.4 16 22.4 6.4 64 12.8 105.6 22.4 44.8 12.8 92.8 32 121.6 27.2 84.8-12.8 35.2-105.6 22.4-124.8-73.6-115.2-121.6-188.8-160-160-9.6 6.4-9.6-19.2-9.6-27.2 3.2-38.4 19.2-51.2 32-80 22.4-54.4 38.4-118.4 70.4-148.8 25.6-32 64-83.2 70.4-108.8-6.4-57.6-6.4-121.6-9.6-176 0-57.6 6.4-108.8 73.6-142.4 12.8-11.2 33.6-14.4 54.4-14.4 38.4 0 83.2 9.6 112 32 44.8 32 70.4 102.4 67.2 153.6-3.2 38.4 3.2 80 16 121.6 16 48 38.4 83.2 76.8 124.8 44.8 48 80 139.2 88 200 9.6 54.4-3.2 88-16 92.8-19.2 3.2-27.2 60.8-84.8 57.6-35.2-3.2-38.4-22.4-51.2-41.6-16-27.2-32-19.2-38.4 9.6-3.2 16 0 38.4 3.2 54.4 9.6 35.2 6.4 70.4 0 112-12.8 76.8 54.4 92.8 99.2 54.4 44.8-35.2 54.4-41.6 108.8-60.8 83.2-27.2 57.6-54.4 9.6-70.4-41.6-12.8-41.6-83.2-27.2-96 3.2 64 40 72 57.6 86.4z"/></svg>
-                <h3 style="margin-bottom:4px;">Linux</h3>
-                <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Ubuntu, Debian, Fedora &middot; x64</p>
-                <div style="background:var(--bg);border:1px solid #3f3f46;border-radius:8px;padding:12px;text-align:left;margin-bottom:12px;overflow-x:auto;">
-                    <code style="font-size:12px;color:var(--green);word-break:break-all;">wget -O- https://agent.pcresolve.com.br/install.sh | bash</code>
-                </div>
-                <button onclick="navigator.clipboard.writeText('wget -O- https://agent.pcresolve.com.br/install.sh | bash')" class="btn btn-outline" style="width:100%;justify-content:center;font-size:13px;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                    Copiar Comando
-                </button>
-            </div>
-            <div class="os-card" style="opacity:0.6;">
-                <svg class="os-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.92.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.93-1.38 2.9-1.5.14 1.08-.32 2.17-.97 2.92-.7.8-1.86 1.42-2.97 1.33-.16-1.04.32-2.06 1.04-2.75"/></svg>
-                <h3 style="margin-bottom:4px;">macOS</h3>
-                <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Em breve</p>
-                <span class="btn btn-outline" style="width:100%;justify-content:center;cursor:default;opacity:0.5;">Em Breve</span>
-            </div>
-        </div>
+
+<!-- ── DOWNLOAD ── -->
+<section id="download" class="section section--alt">
+  <div class="container">
+    <span class="label" data-reveal>Download</span>
+    <h2 data-reveal>Instale o Agente</h2>
+    <p class="subtitle" data-reveal>Disponível para Windows, Linux e macOS. Escolha o seu sistema e comece agora.</p>
+
+    <div class="download-grid" data-stagger>
+
+      <!-- Windows -->
+      <div class="dl-card">
+        <svg class="dl-icon" viewBox="0 0 88 88" aria-label="Windows">
+          <rect x="0"  y="0"  width="40" height="40" fill="#F35325"/>
+          <rect x="48" y="0"  width="40" height="40" fill="#81BC06"/>
+          <rect x="0"  y="48" width="40" height="40" fill="#05A6F0"/>
+          <rect x="48" y="48" width="40" height="40" fill="#FFBA08"/>
+        </svg>
+        <h3>Windows</h3>
+        <p class="dl-card__sub">Windows 10 e 11 &middot; 64 bits</p>
+        <a href="https://agent.pcresolve.com.br/meshagents?id=4" class="btn btn-primary" style="width:100%;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Baixar Agente
+        </a>
+      </div>
+
+      <!-- Linux -->
+      <div class="dl-card">
+        <img class="dl-icon" src="img/tux.svg" alt="Linux (Tux)">
+        <h3>Linux</h3>
+        <p class="dl-card__sub">Ubuntu, Debian, Fedora &middot; x64</p>
+        <button
+          class="btn btn-primary"
+          style="width:100%;"
+          data-copy="wget -O- https://agent.pcresolve.com.br/install.sh | bash"
+          aria-label="Copiar comando de instalação"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+          Copiar Comando de Instalação
+        </button>
+      </div>
+
+      <!-- macOS -->
+      <div class="dl-card">
+        <svg class="dl-icon" viewBox="0 0 24 24" aria-label="macOS">
+          <defs>
+            <linearGradient id="appleGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#d4d4d8"/>
+              <stop offset="100%" stop-color="#71717a"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#appleGrad)" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.92.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.93-1.38 2.9-1.5.14 1.08-.32 2.17-.97 2.92-.7.8-1.86 1.42-2.97 1.33-.16-1.04.32-2.06 1.04-2.75"/>
+        </svg>
+        <h3>macOS</h3>
+        <p class="dl-card__sub">macOS 12 Monterey ou superior</p>
+        <a href="https://agent.pcresolve.com.br/meshagents?id=6" class="btn btn-primary" style="width:100%;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Baixar Agente
+        </a>
+      </div>
+
     </div>
+  </div>
 </section>
 
+
+<!-- ── FAQ ── -->
 <section id="faq" class="section">
-    <div class="container">
-        <span class="section-label">FAQ</span>
-        <h2>Perguntas Frequentes</h2>
-        <div class="faq-list">
-            <details>
-                <summary>O agente é seguro? Ele acessa meus arquivos?</summary>
-                <p>Sim, 100% seguro. O agente só executa ações que você autorizar. Seus arquivos pessoais nunca são acessados sem sua permissão explícita. Toda conexão é criptografada ponta a ponta.</p>
-            </details>
-            <details>
-                <summary>Como funciona o crédito pré-pago?</summary>
-                <p>Você compra créditos uma vez e usa quando precisar. Cada conversa com a IA consome créditos de acordo com os tokens processados. Seus créditos não expiram. Quando acabar, é só comprar mais. Sem mensalidade, sem contrato, sem surpresa.</p>
-            </details>
-            <details>
-                <summary>Preciso de conhecimento técnico pra usar?</summary>
-                <p>Não. Você só precisa descrever o problema em português, como se estivesse falando com um técnico. Exemplo: "Meu PC está muito lento para abrir programas". A IA entende, diagnostica e resolve.</p>
-            </details>
-            <details>
-                <summary>Funciona em qualquer Windows? E Linux?</summary>
-                <p>Windows 10 e 11 (64 bits). Linux: Ubuntu, Debian, Fedora e derivados (64 bits). O agente é leve e não consome recursos quando não está em uso ativo.</p>
-            </details>
-            <details>
-                <summary>Posso usar em mais de um computador?</summary>
-                <p>Sim. Sua conta pode ter várias máquinas vinculadas. Os créditos são da conta — todos os computadores usam a mesma carteira. Ideal para famílias e pequenas empresas.</p>
-            </details>
-            <details>
-                <summary>A IA faz tudo sozinha ou tem um humano?</summary>
-                <p>A IA é sua primeira linha de suporte: diagnostica, sugere correções e executa ações seguras. Ela funciona 24 horas por dia, sem espera. Toda ação executada aparece pra você autorizar. Para casos muito complexos, pode escalar para suporte humano especializado.</p>
-            </details>
-            <details>
-                <summary>Qual a diferença pra uma assistência técnica tradicional?</summary>
-                <p>A assistência tradicional exige agendamento, deslocamento e tempo. A PC Resolve está disponível 24h, responde em segundos, e você paga só pelo que usar — sem taxa de visita, sem valor mínimo, sem espera. Ideal pra quem tem 1 computador ou para PMEs com vários.</p>
-            </details>
-        </div>
+  <div class="container">
+    <span class="label" data-reveal>FAQ</span>
+    <h2 data-reveal>Perguntas Frequentes</h2>
+
+    <div class="faq-list" data-reveal>
+
+      <details open>
+        <summary>
+          O agente é seguro? Ele acessa meus arquivos?
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <p>
+          Sim. O agente só executa ações que você autorizar.
+          Seus arquivos pessoais nunca são acessados sem permissão.
+          Toda conexão é criptografada de ponta a ponta e você pode cancelar qualquer ação antes de ela acontecer.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Preciso de conhecimento técnico para usar?
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <p>
+          Não. Você só precisa descrever o problema em português, como se estivesse conversando com um especialista.
+          A IA entende e cuida do diagnóstico.
+          Exemplo: "Meu PC demora muito pra ligar" já é o suficiente.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Como funciona o crédito pré-pago?
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <p>
+          Você compra créditos uma vez e usa quando precisar.
+          Cada conversa com a IA consome créditos conforme o processamento.
+          Os créditos não têm prazo de validade. Quando acabar, é só recarregar pelo portal.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Quais sistemas operacionais são suportados?
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <p>
+          Windows 10 e 11 (64 bits), Linux (Ubuntu, Debian, Fedora e distribuições compatíveis) e macOS 12 Monterey ou superior.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Posso usar em mais de um computador?
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <p>
+          Sim. Uma conta pode ter várias máquinas vinculadas.
+          Os créditos são compartilhados entre todos os computadores da mesma conta.
+          Ideal para famílias e pequenas empresas.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          O que acontece quando os créditos acabam?
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <p>
+          O agente avisa quando o saldo estiver baixo.
+          Quando os créditos acabam, novas interações com a IA ficam pausadas.
+          É só recarregar pelo portal para retomar de onde parou.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Qual a diferença de uma assistência técnica tradicional?
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <p>
+          A assistência técnica tradicional exige agendamento, deslocamento e tempo de espera.
+          O PC Resolve está disponível a qualquer hora, responde em segundos e você paga só pelo que usar.
+          Sem taxa de visita, sem valor mínimo.
+        </p>
+      </details>
+
     </div>
+  </div>
 </section>
 
-<section id="cta" class="section">
-    <div class="container">
-        <div class="cta-box">
-            <h2>Seu PC merece<br>um especialista 24h</h2>
-            <p>Primeiro atendimento grátis. Instale o agente agora e veja a IA resolver.</p>
-            <a href="#download" class="btn btn-primary" style="font-size:17px;padding:16px 36px;">Primeiro Atendimento Grátis →</a>
-        </div>
+
+<!-- ── CTA FINAL ── -->
+<section id="cta" class="section section--alt cta-section">
+  <div class="container">
+    <div class="cta-box" data-reveal>
+      <h2>Comece agora,<br>sem compromisso</h2>
+      <p>Primeiro atendimento grátis. Instale o agente e veja a IA trabalhar.</p>
+      <a href="#download" class="btn btn-primary btn-lg">Baixar o Agente Grátis</a>
     </div>
+  </div>
 </section>
 
-<footer>
-    <div class="container">
-        <div class="footer-links">
-            <a href="#recursos">Recursos</a>
-            <a href="#creditos">Créditos</a>
-            <a href="#download">Download</a>
-            <a href="#">Termos de Uso</a>
-            <a href="#">Privacidade</a>
-            <a href="mailto:suporte@pcresolve.com.br">suporte@pcresolve.com.br</a>
-            <a href="https://app.pcresolve.com.br">Portal do Cliente</a>
-        </div>
-        <p>© 2026 PC Resolve — Eu Faço Seu Marketing.</p>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <a href="/" class="logo" style="font-size:17px;">PC<em>Resolve</em></a>
+    <div class="footer__links">
+      <a href="#recursos">Recursos</a>
+      <a href="#creditos">Créditos</a>
+      <a href="#download">Download</a>
+      <a href="#faq">FAQ</a>
+      <a href="#">Termos de Uso</a>
+      <a href="#">Privacidade</a>
+      <a href="mailto:suporte@pcresolve.com.br">suporte@pcresolve.com.br</a>
+      <a href="https://app.pcresolve.com.br">Portal do Cliente</a>
     </div>
+    <p>© 2026 PC Resolve</p>
+  </div>
 </footer>
 
+
+<script src="js/main.js"></script>
 </body>
 </html>

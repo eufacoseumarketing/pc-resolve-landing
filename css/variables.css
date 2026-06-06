@@ -1,0 +1,52 @@
+:root {
+  /* ── Backgrounds (deep navy) ── */
+  --bg:         #020C18;
+  --bg-surface: #041526;
+  --bg-raised:  #071E35;
+  --bg-overlay: #0A2544;
+  --bg-glass:   rgba(4, 21, 38, 0.8);
+
+  /* ── Borders ── */
+  --border:        rgba(0, 170, 255, 0.1);
+  --border-strong: rgba(0, 170, 255, 0.2);
+  --border-accent: rgba(0, 212, 255, 0.45);
+  --border-green:  rgba(0, 255, 136, 0.35);
+
+  /* ── Text ── */
+  --text:   #E8F4FF;
+  --text-2: #6FA3C8;
+  --text-3: #3D6882;
+
+  /* ── Brand: Electric Cyan ── */
+  --cyan:       #00C8FF;
+  --cyan-light: #38D8FF;
+  --cyan-dark:  #0099CC;
+  --cyan-glow:  rgba(0, 200, 255, 0.22);
+  --cyan-dim:   rgba(0, 200, 255, 0.08);
+
+  /* ── Secondary: Neon Green ── */
+  --green:       #00FF8C;
+  --green-light: #40FFAA;
+  --green-glow:  rgba(0, 255, 140, 0.18);
+  --green-dim:   rgba(0, 255, 140, 0.07);
+
+  /* ── Alert colors ── */
+  --amber: #FFB800;
+  --red:   #FF4D6A;
+
+  /* ── Spacing (8px grid) ── */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 20px;  --s-6: 24px;  --s-8: 32px;  --s-10: 40px;
+  --s-12: 48px; --s-16: 64px; --s-24: 96px;
+
+  /* ── Border radius ── */
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   16px;
+  --r-xl:   24px;
+  --r-full: 9999px;
+
+  /* ── Layout ── */
+  --max-w:   1120px;
+  --header-h: 64px;
+}
