@@ -82,15 +82,15 @@ const script = [
   {
     type: 'user',
     text: 'Meu PC está demorando muito pra iniciar o Windows',
-    delay: 600,
+    delay: 720,
   },
-  { type: 'typing', delay: 1400 },
+  { type: 'typing', delay: 1680 },
   {
     type: 'ai',
     text: 'Analisando sua máquina...',
-    delay: 900,
+    delay: 1080,
   },
-  { type: 'typing', delay: 1800 },
+  { type: 'typing', delay: 2160 },
   {
     type: 'ai-diagnosis',
     intro: 'Encontrei três pontos que estão causando lentidão na inicialização:',
@@ -99,15 +99,14 @@ const script = [
       { cls: 'issue-dot--amber',  text: '14 programas pesados rodando na inicialização' },
       { cls: 'issue-dot--yellow', text: 'Disco com 91% de capacidade utilizada' },
     ],
-    delay: 700,
+    delay: 840,
   },
   {
     type: 'ai',
     text: 'Posso limpar os temporários e desativar os programas desnecessários agora. Quer autorizar?',
-    delay: 1100,
+    delay: 1320,
   },
-  { type: 'actions', delay: 500 },
-  { type: 'reset', delay: 5000 },
+  { type: 'actions', delay: 600 },
 ];
 
 function createUserMsg(text) {
@@ -148,11 +147,6 @@ function runScript() {
 
   script.forEach(step => {
     elapsed += step.delay;
-
-    if (step.type === 'reset') {
-      timeouts.push(setTimeout(runScript, elapsed));
-      return;
-    }
 
     timeouts.push(setTimeout(() => {
 
