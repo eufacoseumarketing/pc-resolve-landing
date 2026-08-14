@@ -48,6 +48,14 @@
   font-style: normal;
   color: var(--cyan);
 }
+.logo-img {
+  display: block;
+  height: 30px;
+  width: auto;
+}
+.logo--footer .logo-img {
+  height: 24px;
+}
 
 .nav {
   display: flex;
