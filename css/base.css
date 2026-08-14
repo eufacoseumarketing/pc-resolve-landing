@@ -19,8 +19,8 @@ body {
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: rgba(0,200,255,.2); border-radius: var(--r-full); }
-::-webkit-scrollbar-thumb:hover { background: rgba(0,200,255,.35); }
+::-webkit-scrollbar-thumb { background: rgba(239, 72, 16,.2); border-radius: var(--r-full); }
+::-webkit-scrollbar-thumb:hover { background: rgba(239, 72, 16,.35); }
 
 /* ── Layout ── */
 .container {
@@ -87,7 +87,7 @@ h2 {
 
 .btn-primary {
   background: var(--cyan);
-  color: #020C18;
+  color: #100911;
   font-weight: 700;
   box-shadow: 0 0 24px var(--cyan-glow), 0 2px 8px rgba(0,0,0,.4);
 }
@@ -110,7 +110,7 @@ h2 {
 
 .btn-green {
   background: var(--green);
-  color: #020C18;
+  color: #100911;
   font-weight: 700;
   box-shadow: 0 0 24px var(--green-glow);
 }

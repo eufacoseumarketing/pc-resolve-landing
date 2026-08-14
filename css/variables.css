@@ -1,28 +1,28 @@
 :root {
-  /* ── Backgrounds (deep navy) ── */
-  --bg:         #020C18;
-  --bg-surface: #041526;
-  --bg-raised:  #071E35;
-  --bg-overlay: #0A2544;
-  --bg-glass:   rgba(4, 21, 38, 0.8);
+  /* ── Backgrounds (warm near-black) ── */
+  --bg:         #100911;
+  --bg-surface: #1A0E1C;
+  --bg-raised:  #251428;
+  --bg-overlay: #301B33;
+  --bg-glass:   rgba(16, 9, 17, 0.8);
 
   /* ── Borders ── */
-  --border:        rgba(0, 170, 255, 0.1);
-  --border-strong: rgba(0, 170, 255, 0.2);
-  --border-accent: rgba(0, 212, 255, 0.45);
+  --border:        rgba(239, 72, 16, 0.1);
+  --border-strong: rgba(239, 72, 16, 0.2);
+  --border-accent: rgba(239, 72, 16, 0.45);
   --border-green:  rgba(0, 255, 136, 0.35);
 
   /* ── Text ── */
-  --text:   #E8F4FF;
-  --text-2: #6FA3C8;
-  --text-3: #3D6882;
+  --text:   #F8F2EF;
+  --text-2: #AB948C;
+  --text-3: #6C5A53;
 
-  /* ── Brand: Electric Cyan ── */
-  --cyan:       #00C8FF;
-  --cyan-light: #38D8FF;
-  --cyan-dark:  #0099CC;
-  --cyan-glow:  rgba(0, 200, 255, 0.22);
-  --cyan-dim:   rgba(0, 200, 255, 0.08);
+  /* ── Brand: PC Resolve Orange ── */
+  --cyan:       #EF4C15;
+  --cyan-light: #F27145;
+  --cyan-dark:  #BF3A0D;
+  --cyan-glow:  rgba(239, 72, 16, 0.22);
+  --cyan-dim:   rgba(239, 72, 16, 0.08);
 
   /* ── Secondary: Neon Green ── */
   --green:       #00FF8C;
